@@ -1,7 +1,10 @@
 package com.driver;
 
 import java.util.HashMap;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Repository;
 
+@Repository
 public class StudentReporesitory {
 
     HashMap<String,Student> studentDb=new HashMap<>();

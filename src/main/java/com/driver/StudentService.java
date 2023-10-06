@@ -8,7 +8,7 @@ import org.springframework.stereotype.Service;
 public class StudentService {
 
     @Autowired
-    private StudentReporesitory reporesitoryObj;
+     private StudentReporesitory reporesitoryObj;
 
     public void addStudent(Student student){
         reporesitoryObj.addStudent(student);
