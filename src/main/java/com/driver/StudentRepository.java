@@ -51,17 +51,16 @@ public class StudentRepository {
     }
 
     public void deleteTeacherByName(String teacher) {
-        teacherDB.remove(teacher);
-
-        List<String> students = getStudentsByTeacherName(teacher);
-        for (String student : students)
+        for(String student: studentTeacherDB.get(teacher))
             studentDB.remove(student);
 
         studentTeacherDB.remove(teacher);
+        teacherDB.remove(teacher);
     }
 
     public void deleteAllTeachers() {
-        teacherDB.clear();
-        studentTeacherDB.clear();
+        for(String teacher: teacherDB.keySet()){
+            deleteTeacherByName(teacher);
+        }
     }
 }
