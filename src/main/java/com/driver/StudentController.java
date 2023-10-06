@@ -18,15 +18,18 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @RequestMapping("students")
 public class StudentController {
-
+    @Autowired
+    private StudentService serviceObj;
     @PostMapping("/add-student")
     public ResponseEntity<String> addStudent(@RequestBody Student student){
-
+        serviceObj.addStudent(student);
         return new ResponseEntity<>("New student added successfully", HttpStatus.CREATED);
     }
 
     @PostMapping("/add-teacher")
     public ResponseEntity<String> addTeacher(@RequestBody Teacher teacher){
+
+        serviceObj.addTeacher(teacher);
 
         return new ResponseEntity<>("New teacher added successfully", HttpStatus.CREATED);
     }
